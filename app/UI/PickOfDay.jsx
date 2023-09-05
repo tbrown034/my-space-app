@@ -42,13 +42,11 @@ const PickOfDay = () => {
       <h1 className="text-2xl font-bold">NASA's Picture of the Day</h1>
 
       {photoData ? (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2">
           <h1 className="text-2xl ">{photoData.title}</h1>
 
           <img src={photoData.url} alt={photoData.title} />
-          <caption className="text-sm">
-            Photo Credit: {photoData.copyright}
-          </caption>
+          <p className="text-sm italic">Photo Credit: {photoData.copyright}</p>
 
           <p className="text-sm">
             {showFullText

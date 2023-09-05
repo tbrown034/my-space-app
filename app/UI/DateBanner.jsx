@@ -1,11 +1,15 @@
 import React from "react";
+import dayjs from "dayjs";
 
 const DateBanner = () => {
-  const ourDate = new Date();
+  const ourDate = dayjs(); // Gets the current date and time
+
+  // Format the date using Day.js
+  const readableDate = ourDate.format("dddd, MMM. D, YYYY");
+
   return (
     <div>
-      {/* Convert the Date object to a string */}
-      <p>{ourDate.toString()}</p>
+      <p className="font-bold text-center">{readableDate}</p>
     </div>
   );
 };

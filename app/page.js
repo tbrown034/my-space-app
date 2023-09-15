@@ -5,11 +5,13 @@ import PickOfDay from "./Components/PickOfDay";
 import InSpace from "./Components/InSpace";
 export default function Home() {
   return (
-    <main className="gap-4 py-4">
+    <main className="py-2">
       <DateBanner />
-      <News />
-      <PickOfDay />
-      <InSpace />
+      <div className="flex flex-col gap-4 p-4 ">
+        <News />
+        <PickOfDay />
+        <InSpace />
+      </div>
     </main>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Oswald } from "next/font/google";
+const oswald = Oswald({ subsets: ["latin"] });
 
 const News = () => {
   const [newsData, setNewsData] = useState(null);
@@ -41,7 +43,11 @@ const News = () => {
         <>
           {/* Elevated top story */}
           <div className="top-story">
-            <h1 className="text-2xl font-bold">{newsData.results[2].title}</h1>
+            <h1
+              className={`text-3xl mb-2 font-bold text-center ${oswald.className}`}
+            >
+              {newsData.results[2].title}
+            </h1>
 
             {newsData.results[0].multimedia &&
             newsData.results[0].multimedia.length > 0 ? (

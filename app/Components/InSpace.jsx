@@ -23,7 +23,7 @@ const InSpace = () => {
   return (
     <div>
       <p>Number of People in Space:</p>
-      <span>{peopleInSpace.length}</span>
+      <span className="">{peopleInSpace.length}</span>
       <ul>
         {peopleInSpace.map((person, index) => (
           <li key={index}>

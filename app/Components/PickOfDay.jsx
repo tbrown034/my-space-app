@@ -40,8 +40,8 @@ const PickOfDay = () => {
 
   return (
     <div>
-      <div className="inline-block p-0.5 px-2 text-sm font-bold text-semibold bg-slate-300 rounded-3xl">
-        <p className="mb-2 text-xs ">NASA Pic of the Day </p>
+      <div className="inline-block p-0.5 px-2 text-sm font-bold text-semibold bg-slate-300 rounded-3xl text-semibold mb-1">
+        <p className="text-xs ">NASA Pic of the Day </p>
       </div>
       {photoData ? (
         <div className="flex flex-col gap-2">
@@ -49,7 +49,11 @@ const PickOfDay = () => {
             {photoData.title}
           </h1>
 
-          <img src={photoData.url} alt={photoData.title} />
+          <img
+            className="rounded-xl"
+            src={photoData.url}
+            alt={photoData.title}
+          />
           <p className="text-sm italic">Photo Credit: {photoData.copyright}</p>
 
           <p className="text-sm">

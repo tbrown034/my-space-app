@@ -6,11 +6,12 @@ import InSpace from "./Components/InSpace";
 export default function Home() {
   return (
     <main className="py-2">
-      <DateBanner />
       <div className="flex flex-col gap-4 p-4 ">
         <News />
-        <PickOfDay />
-        <InSpace />
+        <div className="flex flex-col gap-4 p-4">
+          <PickOfDay />
+          <InSpace />
+        </div>
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 import "./globals.css";
+import DateBanner from "./UI/DateBanner";
 import Header from "./UI/Header";
 
 export const metadata = {
@@ -9,8 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className=" bg-slate-200">
+      <body className=" bg-slate-200 gap2">
         <Header />
+        <DateBanner />
         {children}
       </body>
     </html>

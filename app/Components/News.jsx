@@ -38,21 +38,22 @@ const News = () => {
   return (
     <>
       {error ? (
-        <p>Error: {error}</p>
+        <p className="text-red-500">Error: {error}</p>
       ) : newsData ? (
         <>
           {/* Elevated top story */}
-          <div className="top-story">
+          <div className="p-2 rounded top-story">
             <a
               href={newsData.results[2].url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <h1 className="mb-2 text-3xl font-bold text-center">
+              <h1 className="mb-2 text-3xl font-bold text-cente hover:text-slate-500 ">
                 {newsData.results[2].title}
               </h1>
             </a>
 
+            {/* Image */}
             {newsData.results[0].multimedia &&
             newsData.results[0].multimedia.length > 0 ? (
               <a
@@ -66,6 +67,8 @@ const News = () => {
                     alt={newsData.results[0].title}
                     width={800}
                     height={300}
+                    layout="responsive"
+                    className="w-full rounded-xl"
                   />
                 </div>
               </a>
@@ -76,16 +79,23 @@ const News = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <h2 className="text-2xl font-semibold text-gray-700">
+              <h2 className="text-2xl font-semibold text-gray-700 hover:text-gray-500">
                 {newsData.results[2].abstract}
               </h2>
             </a>
           </div>
 
           {/* Remaining stories */}
-          <ul className="list-disc list-inside">
+          <ul className="px-4 list-disc list-inside">
+            <div className="inline-block p-0.5 px-2 text-sm font-bold text-semibold bg-slate-300 rounded-3xl">
+              <p className="text-xs ">More From The NYT</p>
+            </div>
+
             {newsData.results.slice(3, 9).map((article, index) => (
-              <li className="hover:underline" key={index}>
+              <li
+                className="mt-2 hover:underline hover:text-blue-600"
+                key={index}
+              >
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
                   {article.title}
                 </a>
@@ -94,7 +104,7 @@ const News = () => {
           </ul>
         </>
       ) : (
-        "Loading..."
+        <p className="text-gray-400">Loading...</p>
       )}
     </>
   );

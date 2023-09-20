@@ -54,7 +54,7 @@ const News = () => {
               <Image
                 src={newsData.results[2].multimedia[0].url}
                 alt={newsData.results[0].title}
-                width={500}
+                width={800}
                 height={300}
               />
             ) : null}

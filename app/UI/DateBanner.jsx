@@ -8,7 +8,7 @@ const DateBanner = () => {
   const readableDate = ourDate.format("dddd, MMM. D, YYYY");
 
   return (
-    <div className="w-full bg-slate-300">
+    <div className="w-full opacity-90 bg-slate-300">
       <p className="font-bold text-center">{readableDate}</p>
     </div>
   );

@@ -8,7 +8,7 @@ export default function Home() {
     <main className="py-2">
       <div className="flex flex-col gap-4 p-4 ">
         <News />
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-8 p-4">
           <PickOfDay />
           <InSpace />
         </div>

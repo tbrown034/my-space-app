@@ -43,21 +43,43 @@ const News = () => {
         <>
           {/* Elevated top story */}
           <div className="top-story">
-            <h1
-              className={`text-3xl mb-2 font-bold text-center ${oswald.className}`}
+            <a
+              href={newsData.results[2].url}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {newsData.results[2].title}
-            </h1>
+              <h1 className="mb-2 text-3xl font-bold text-center">
+                {newsData.results[2].title}
+              </h1>
+            </a>
 
             {newsData.results[0].multimedia &&
             newsData.results[0].multimedia.length > 0 ? (
-              <Image
-                src={newsData.results[2].multimedia[0].url}
-                alt={newsData.results[0].title}
-                width={800}
-                height={300}
-              />
+              <a
+                href={newsData.results[2].url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div>
+                  <Image
+                    src={newsData.results[2].multimedia[0].url}
+                    alt={newsData.results[0].title}
+                    width={800}
+                    height={300}
+                  />
+                </div>
+              </a>
             ) : null}
+
+            <a
+              href={newsData.results[2].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className="text-2xl font-semibold text-gray-700">
+                {newsData.results[2].abstract}
+              </h2>
+            </a>
           </div>
 
           {/* Remaining stories */}

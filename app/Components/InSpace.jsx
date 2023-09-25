@@ -23,40 +23,29 @@ const InSpace = () => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="max-w-lg p-8 mx-auto text-white bg-blue-800 rounded-3xl"
-    >
-      <p className="text-2xl">Number of People in Space:</p>
-      <motion.span
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{
-          opacity: showAnimation ? 1 : 0,
-          scale: showAnimation ? 1 : 0.5,
-        }}
-        transition={{ duration: 0.5 }}
-        className="m-2 text-4xl text-yellow-300"
-      >
-        {peopleInSpace.length}
-      </motion.span>
-      <ul className="list-decimal list-inside">
+    <div className="p-2 px-4 space-y-2 text-white bg-blue-800 rounded-3xl">
+      <div className="flex items-center justify-center">
+        <p className="text-2xl">Number of People in Space:</p>
+        <span className="m-2 text-4xl text-yellow-300">
+          {peopleInSpace.length}
+        </span>
+      </div>
+      <div className="flex flex-col gap-2 px-2">
         {peopleInSpace.map((person, index) => (
-          <motion.li
+          <motion.div
             key={index}
             initial={{ opacity: 0, y: -20 }}
             animate={{
               opacity: showAnimation ? 1 : 0,
               y: showAnimation ? 0 : -20,
             }}
-            transition={{ delay: index * 0.3 }}
-            className="my-2 text-xl"
+            transition={{ delay: index * 0.5, duration: 1 }} // Slowed down to 1 second
           >
             👨‍🚀 {person.name} is currently on the 🚀 {person.craft}.
-          </motion.li>
+          </motion.div>
         ))}
-      </ul>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

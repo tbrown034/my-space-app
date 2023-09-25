@@ -39,7 +39,7 @@ const News = () => {
       {error ? (
         <p className="text-red-500 bg-yellow-200 ">Error: {error}</p>
       ) : newsData ? (
-        <div className="">
+        <div className="flex flex-col gap-2">
           <a
             href={newsData.results[2].url}
             target="_blank"
@@ -78,7 +78,7 @@ const News = () => {
             </h2>
           </a>
 
-          <Tag text="More News" />
+          <Tag text="Top News" />
 
           <ul className="space-y-1 list-disc list-inside ">
             {newsData.results.slice(3, 9).map((article, index) => (

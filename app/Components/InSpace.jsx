@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Tag from "../UI/Tag";
@@ -6,11 +5,13 @@ import Tag from "../UI/Tag";
 const InSpace = () => {
   const [peopleInSpace, setPeopleInSpace] = useState([]);
   const [showAnimation, setShowAnimation] = useState(false);
-  const [error, setError] = useState(null); // Added error state
+  const [error, setError] = useState(null); // Error state
+  const [isLoading, setIsLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true); // Set loading to true at the start of fetch
         const res = await fetch("http://api.open-notify.org/astros.json");
         const data = await res.json();
         setPeopleInSpace(data.people);
@@ -18,6 +19,8 @@ const InSpace = () => {
       } catch (error) {
         setError("Error fetching data."); // Set the error state if an error occurs
         console.log("error", error);
+      } finally {
+        setIsLoading(false); // Set loading to false once fetch is complete
       }
     };
 
@@ -26,13 +29,16 @@ const InSpace = () => {
 
   return (
     <>
-      {error ? ( // Render this block if there is an error
+      <Tag text="People in Space" /> {/* Added the Tag */}
+      {error ? (
         <p>Error: {error}</p>
+      ) : isLoading ? ( // Added Loading condition
+        <p>Loading...</p>
       ) : (
-        <div className="p-2 px-4 space-y-2 text-white bg-blue-800 rounded-3xl">
+        <div className="p-2 px-4 space-y-2 text-white bg-slate-900 rounded-3xl">
           <div className="flex items-center justify-center">
-            <p className="text-2xl">Number of People in Space:</p>
-            <span className="m-2 text-4xl text-yellow-300">
+            <span className="text-2xl">Number of People in Space:</span>
+            <span className="p-2 text-4xl text-yellow-300 ">
               {peopleInSpace.length}
             </span>
           </div>
@@ -45,7 +51,7 @@ const InSpace = () => {
                   opacity: showAnimation ? 1 : 0,
                   y: showAnimation ? 0 : -20,
                 }}
-                transition={{ delay: index * 0.5, duration: 1 }} // Slowed down to 1 second
+                transition={{ delay: index * 0.5, duration: 1 }}
               >
                 👨‍🚀 {person.name} is currently on the 🚀 {person.craft}.
               </motion.div>

@@ -43,13 +43,13 @@ const PickOfDay = () => {
   };
 
   return (
-    <div>
-      <Tag text="Picture of the Day" />
+    <div className="flex flex-col gap-2">
+      <Tag text="NASA APOD" />
       {isLoading ? (
         <p>Loading...</p>
       ) : photoData ? (
-        <div className="flex flex-col">
-          <h1 className="text-3xl font-bold text-center  hover:text-slate-500">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-bold text-center hover:text-slate-500">
             {photoData.title}
           </h1>
           {photoData.media_type === "image" ? (
@@ -71,23 +71,26 @@ const PickOfDay = () => {
           )}
 
           {photoData.copyright && (
-            <p className="text-sm italic">
+            <p className="mt-1 text-xs italic">
               Photo Credit: {photoData.copyright}
             </p>
           )}
 
-          <p className="text-sm">
-            {showFullText
-              ? photoData.explanation
-              : truncateText(photoData.explanation)}
+          <div className="p-2 text-base">
+            <span className="font-medium">NASA Picture of the Day: </span>
+            <span>
+              {showFullText
+                ? photoData.explanation
+                : truncateText(photoData.explanation)}
+            </span>
             <a
               href="#!"
               onClick={() => setShowFullText(!showFullText)}
-              className="ml-2 text-blue-600"
+              className="ml-2 font-semibold text-blue-600 hover:text-blue-800"
             >
               {showFullText ? "Show less" : "Click for more"}
             </a>
-          </p>
+          </div>
         </div>
       ) : error ? (
         <p>Error: {error}</p>

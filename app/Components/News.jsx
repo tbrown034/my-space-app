@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Oswald } from "next/font/google";
 const oswald = Oswald({ subsets: ["latin"] });
+import Tag from "../UI/Tag";
 
 const News = () => {
   const [newsData, setNewsData] = useState(null);
@@ -42,7 +43,7 @@ const News = () => {
       ) : newsData ? (
         <>
           {/* Elevated top story */}
-          <div className="p-2 rounded top-story">
+          <div className="p-2 rounded ">
             <a
               href={newsData.results[2].url}
               target="_blank"
@@ -87,9 +88,7 @@ const News = () => {
 
           {/* Remaining stories */}
           <ul className="px-4 list-disc list-inside">
-            <div className="inline-block p-0.5 px-2 text-sm font-bold text-semibold bg-slate-300 rounded-3xl">
-              <p className="text-xs ">More From The NYT</p>
-            </div>
+            <Tag text="More From the NYT" />
 
             {newsData.results.slice(3, 9).map((article, index) => (
               <li

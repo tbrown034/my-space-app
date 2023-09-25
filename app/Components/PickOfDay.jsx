@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image"; // Import the Next.js Image component
 import Tag from "../UI/Tag";
 const PickOfDay = () => {
   const [photoData, setPhotoData] = useState(null);
@@ -45,12 +44,12 @@ const PickOfDay = () => {
 
   return (
     <div>
-      <Tag text="NASA Pic of the Day" />
+      <Tag text="Picture of the Day" />
       {isLoading ? (
         <p>Loading...</p>
       ) : photoData ? (
-        <div className="flex flex-col gap-2">
-          <h1 className="mb-2 text-3xl font-bold text-center hover:text-slate-500">
+        <div className="flex flex-col">
+          <h1 className="text-3xl font-bold text-center  hover:text-slate-500">
             {photoData.title}
           </h1>
           {photoData.media_type === "image" ? (

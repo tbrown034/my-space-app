@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Oswald } from "next/font/google";
-const oswald = Oswald({ subsets: ["latin"] });
 import Tag from "../UI/Tag";
 
 const News = () => {
@@ -39,60 +37,53 @@ const News = () => {
   return (
     <>
       {error ? (
-        <p className="text-red-500">Error: {error}</p>
+        <p className="text-red-500 bg-yellow-200 ">Error: {error}</p>
       ) : newsData ? (
-        <>
-          {/* Elevated top story */}
-          <div className="p-2 rounded ">
+        <div className="">
+          <a
+            href={newsData.results[2].url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h1 className="text-3xl font-bold text-center hover:text-slate-500">
+              {newsData.results[2].title}
+            </h1>
+          </a>
+
+          {newsData.results[0].multimedia &&
+          newsData.results[0].multimedia.length > 0 ? (
             <a
               href={newsData.results[2].url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <h1 className="mb-2 text-3xl font-bold text-center hover:text-slate-500 ">
-                {newsData.results[2].title}
-              </h1>
+              <Image
+                src={newsData.results[2].multimedia[0].url}
+                alt={newsData.results[0].title}
+                width={800}
+                height={300}
+                layout="responsive"
+                className="w-full rounded-xl"
+              />
             </a>
+          ) : null}
 
-            {/* Image */}
-            {newsData.results[0].multimedia &&
-            newsData.results[0].multimedia.length > 0 ? (
-              <a
-                href={newsData.results[2].url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div>
-                  <Image
-                    src={newsData.results[2].multimedia[0].url}
-                    alt={newsData.results[0].title}
-                    width={800}
-                    height={300}
-                    layout="responsive"
-                    className="w-full rounded-xl"
-                  />
-                </div>
-              </a>
-            ) : null}
+          <a
+            href={newsData.results[2].url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 className="text-2xl font-semibold text-gray-700 hover:text-gray-500">
+              {newsData.results[2].abstract}
+            </h2>
+          </a>
 
-            <a
-              href={newsData.results[2].url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2 className="text-2xl font-semibold text-gray-700 hover:text-gray-500">
-                {newsData.results[2].abstract}
-              </h2>
-            </a>
-          </div>
+          <Tag text="More News" />
 
-          {/* Remaining stories */}
-          <ul className="px-4 list-disc list-inside">
-            <Tag text="More From the NYT" />
-
+          <ul className="space-y-1 list-disc list-inside ">
             {newsData.results.slice(3, 9).map((article, index) => (
               <li
-                className="mt-2 hover:underline hover:text-blue-600"
+                className="px-4 hover:underline hover:text-blue-800"
                 key={index}
               >
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
@@ -101,7 +92,7 @@ const News = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : (
         <p className="text-gray-400">Loading...</p>
       )}

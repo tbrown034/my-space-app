@@ -1,9 +1,13 @@
 import React from "react";
 
-const Tag = ({ text }) => {
+const Tag = ({ text, className = "" }) => {
   return (
-    <div className="inline-block p-0.5 px-2 text-sm font-bold text-semibold bg-slate-300 rounded-3xl">
-      <p className="text-xs">{text}</p>
+    <div className="flex">
+      <p
+        className={` p-2 text-xs text-white bg-blue-800 rounded-xl ${className}`}
+      >
+        {text}
+      </p>
     </div>
   );
 };

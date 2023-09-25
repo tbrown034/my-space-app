@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className=" bg-slate-200 gap2">
+      <body className="flex flex-col bg-slate-200">
         <Header />
         <DateBanner />
         {children}

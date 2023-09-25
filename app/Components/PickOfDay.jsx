@@ -70,7 +70,13 @@ const PickOfDay = () => {
               allowFullScreen
             ></iframe>
           )}
-          <p className="text-sm italic">Photo Credit: {photoData.copyright}</p>
+
+          {photoData.copyright && (
+            <p className="text-sm italic">
+              Photo Credit: {photoData.copyright}
+            </p>
+          )}
+
           <p className="text-sm">
             {showFullText
               ? photoData.explanation

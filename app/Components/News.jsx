@@ -49,7 +49,7 @@ const News = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <h1 className="mb-2 text-3xl font-bold text-cente hover:text-slate-500 ">
+              <h1 className="mb-2 text-3xl font-bold text-center hover:text-slate-500 ">
                 {newsData.results[2].title}
               </h1>
             </a>

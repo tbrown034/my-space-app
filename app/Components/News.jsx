@@ -78,20 +78,48 @@ const News = () => {
             </h2>
           </a>
 
-          <Tag text="Latest News" />
+          <div className="pt-4 border-t-2 border-b-2 border-slate-300">
+            <a
+              href={newsData.results[3].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className="p-2 py-8 text-xl font-bold">
+                {newsData.results[3].title}
+              </h2>
+            </a>
+          </div>
+          <div className="border-b-2 border-slate-300">
+            <a
+              href={newsData.results[4].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className="p-2 py-8 text-xl font-bold">
+                {newsData.results[4].title}
+              </h2>
+            </a>
+          </div>
+          <div>
+            <Tag text="More Science News" />
 
-          <ul className="space-y-1 list-disc list-inside ">
-            {newsData.results.slice(3, 9).map((article, index) => (
-              <li
-                className="px-4 hover:underline hover:text-blue-800"
-                key={index}
-              >
-                <a href={article.url} target="_blank" rel="noopener noreferrer">
-                  {article.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+            <ul className="space-y-1 list-disc list-inside ">
+              {newsData.results.slice(5, 11).map((article, index) => (
+                <li
+                  className="px-4 hover:underline hover:text-blue-800"
+                  key={index}
+                >
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {article.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ) : (
         <p className="text-gray-400">Loading...</p>

@@ -30,18 +30,20 @@ const TopArticles = () => {
     <div>
       <Tag text="Most Viewed" />
       {mostViewed ? (
-        <ul className="space-y-1 list-disc list-inside">
-          {mostViewed.results.slice(0, 10).map((article, index) => (
-            <li
-              className="px-4 hover:underline hover:text-blue-800"
-              key={index}
-            >
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
-                {article.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className="space-y-1 list-disc list-inside">
+            {mostViewed.results.slice(0, 10).map((article, index) => (
+              <li
+                className="px-4 hover:underline hover:text-blue-800"
+                key={index}
+              >
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  {article.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
         <p>Loading...</p>
       )}

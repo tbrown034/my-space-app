@@ -30,7 +30,7 @@ const InSpace = () => {
   return (
     <>
       <Tag text="People in Space" />
-      <div className="p-2 bg-slate-200 rounded-2xl">
+      <div className="p-2 rounded-2xl">
         <span>
           It's almost impossible to calculate the exact number of people in - or
           mabybe on - the world. But we can at least keep track of our humans in

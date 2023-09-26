@@ -26,38 +26,33 @@ export default function NearEarth() {
 
   return (
     <>
-      <Tag
-        text="🌌 Near-Earth Asteroids: Are We Safe? 🌍"
-        className="mb-4 text-2xl"
-      />
-      <div className="mb-6 text-center">
-        <p>Discover the closest asteroids approaching Earth today!</p>
-      </div>
-      <div className="flex justify-center">
-        <div className="relative w-64 h-64 rounded-lg bg-sky-400">
+      <Tag text="Near-Earth Objects" />
+      <p className="text-center">
+        Earth and how it relates to near-earth objects.
+      </p>
+      <div className="flex flex-wrap justify-center rounded-2xl bg-slate-700">
+        <div className="relative m-4 rounded-lg w-96 h-96 ">
           <div
-            className="absolute flex items-center justify-center w-8 h-8 bg-blue-900 rounded-full"
+            className="absolute flex items-center justify-center w-4 h-4 rounded-full bg-blue-50"
             style={{
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}
             title="This is Earth"
-          >
-            <span className="p-2 text-xs font-semibold text-white">Earth</span>
-          </div>
+          ></div>
           {asteroids.map((asteroid, index) => {
             const distance = parseFloat(
               asteroid.close_approach_data[0].miss_distance.kilometers
             );
-            const scaledDistance = Math.min(100, distance / 1000000); // Scale down
+            const scaledDistance = Math.min(48, distance / 1000000); // 48% so it won't touch the edges
             const randomAngle = Math.random() * 2 * Math.PI;
             const x = 50 + scaledDistance * Math.cos(randomAngle);
             const y = 50 + scaledDistance * Math.sin(randomAngle);
             return (
               <div
                 key={index}
-                className="absolute flex items-center justify-center w-4 h-4 bg-red-500 rounded-full opacity-80 hover:bg-red-600"
+                className="absolute flex items-center justify-center w-2 h-2 rounded-full bg-slate-900 opacity-90 "
                 style={{
                   top: `calc(${y}% - 2px)`,
                   left: `calc(${x}% - 2px)`,

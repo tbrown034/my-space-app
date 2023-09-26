@@ -59,7 +59,10 @@ export default function PlanetSelect() {
   return (
     <>
       <Tag text="The Planets" />
-      <div className="flex flex-wrap justify-center">
+      <div className="text-center">
+        <p>The earth and its fellow planets.</p>
+      </div>
+      <div className="flex flex-wrap justify-center rounded-2xl bg-slate-700">
         {planets.map((planet, index) => (
           <a
             href={planet.url}

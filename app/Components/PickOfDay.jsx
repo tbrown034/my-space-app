@@ -44,7 +44,7 @@ const PickOfDay = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Tag text="NASA APOD" />
+      <Tag text="Space Pic of the Day" />
       {isLoading ? (
         <p>Loading...</p>
       ) : photoData ? (
@@ -86,9 +86,9 @@ const PickOfDay = () => {
             <a
               href="#!"
               onClick={() => setShowFullText(!showFullText)}
-              className="ml-2 font-semibold text-blue-600 hover:text-blue-800"
+              className="ml-2 text-blue-800 hover:underline hover:text-blue-600 hover:underline-offset-auto"
             >
-              {showFullText ? "Show less" : "Click for more"}
+              {showFullText ? "Show less" : "Click for More"}
             </a>
           </div>
         </div>

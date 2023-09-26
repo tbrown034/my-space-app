@@ -29,7 +29,26 @@ const InSpace = () => {
 
   return (
     <>
-      <Tag text="People in Space" /> {/* Added the Tag */}
+      <Tag text="People in Space" />
+      <div className="p-2 bg-slate-200 rounded-2xl">
+        <span>
+          It's almost impossible to calculate the exact number of people in - or
+          mabybe on - the world. But we can at least keep track of our humans in
+          space!
+        </span>{" "}
+        <span>
+          Data courtesy of{" "}
+          <a
+            href="http://api.open-notify.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-800 hover:underline"
+          >
+            Open Notify API
+          </a>
+          .
+        </span>
+      </div>
       {error ? (
         <p>Error: {error}</p>
       ) : isLoading ? ( // Added Loading condition

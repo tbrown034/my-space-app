@@ -73,7 +73,7 @@ const News = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className="text-2xl font-semibold text-gray-700 hover:text-gray-500">
+            <h2 className="text-2xl font-semibold opacity-95 hover:text-gray-500">
               {newsData.results[2].abstract}
             </h2>
           </a>
@@ -101,9 +101,8 @@ const News = () => {
             </a>
           </div>
           <div>
-            <Tag text="More Science News" />
-
-            <ul className="space-y-1 list-disc list-inside ">
+            <Tag text="More Top News" />
+            <ul className="p-2 px-6 space-y-1 list-disc ">
               {newsData.results.slice(5, 11).map((article, index) => (
                 <li
                   className="px-4 hover:underline hover:text-blue-800"

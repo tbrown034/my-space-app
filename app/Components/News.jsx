@@ -78,7 +78,7 @@ const News = () => {
             </h2>
           </a>
 
-          <Tag text="Top News" />
+          <Tag text="Latest News" />
 
           <ul className="space-y-1 list-disc list-inside ">
             {newsData.results.slice(3, 9).map((article, index) => (

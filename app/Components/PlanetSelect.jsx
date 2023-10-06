@@ -53,7 +53,7 @@ const planets = [
   },
 ];
 
-export default function PlanetSelect() {
+export default function PlanetSelect({ setActiveComponent }) {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
 
   return (
@@ -81,6 +81,12 @@ export default function PlanetSelect() {
           </a>
         ))}
       </div>
+      <button
+        className="w-32 p-4 border-2 border-blue-600 rounded-2xl hover:bg-blue-500 active:bg-blue-800 hover:text-slate-200"
+        onClick={() => setActiveComponent(null)} // setting activeComponent to null to close ScienceBot
+      >
+        Close
+      </button>
     </>
   );
 }

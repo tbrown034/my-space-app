@@ -1,24 +1,20 @@
 "use client";
 import News from "./Components/News";
 import PickOfDay from "./Components/PickOfDay";
-import InSpace from "./Components/InSpace";
 import TopArticles from "./Components/TopArticles";
-import PlanetSelect from "./Components/PlanetSelect";
-import NearEarth from "./Components/NearEarth";
-import ScienceBot from "./Components/ScienceBot.jsx";
+import Footer from "./UI/Footer.jsx";
+
+import ExtraMenu from "./Components/ExtraMenu";
 export default function Home() {
   return (
     <main className="p-2">
       <div className="flex flex-col gap-4 p-4 ">
         <News />
-        <ScienceBot />
+        <TopArticles />
 
         <PickOfDay />
-        <PlanetSelect />
-        <NearEarth />
-
-        <InSpace />
-        <TopArticles />
+        <ExtraMenu />
+        <Footer />
       </div>
     </main>
   );

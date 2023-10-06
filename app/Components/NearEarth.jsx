@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Tag from "../UI/Tag";
 
-export default function NearEarth() {
+export default function NearEarth({ setActiveComponent }) {
   const [asteroids, setAsteroids] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,25 +50,33 @@ export default function NearEarth() {
             const x = 50 + scaledDistance * Math.cos(randomAngle);
             const y = 50 + scaledDistance * Math.sin(randomAngle);
             return (
-              <div
-                key={index}
-                className="absolute flex items-center justify-center w-2 h-2 rounded-full bg-slate-900 opacity-90 "
-                style={{
-                  top: `calc(${y}% - 2px)`,
-                  left: `calc(${x}% - 2px)`,
-                }}
-                title={`Name: ${asteroid.name}\nDistance from Earth: ${distance} km`}
-              >
-                <div className="p-2 text-xs font-semibold text-white opacity-0 hover:opacity-100 hover:bg-gray-800 hover:rounded-lg hover:shadow">
-                  <strong>{asteroid.name}</strong>
-                  <br />
-                  Distance: {distance} km
+              <>
+                <div
+                  key={index}
+                  className="absolute flex items-center justify-center w-2 h-2 rounded-full bg-slate-900 opacity-90 "
+                  style={{
+                    top: `calc(${y}% - 2px)`,
+                    left: `calc(${x}% - 2px)`,
+                  }}
+                  title={`Name: ${asteroid.name}\nDistance from Earth: ${distance} km`}
+                >
+                  <div className="p-2 text-xs font-semibold text-white opacity-0 hover:opacity-100 hover:bg-gray-800 hover:rounded-lg hover:shadow">
+                    <strong>{asteroid.name}</strong>
+                    <br />
+                    Distance: {distance} km
+                  </div>
                 </div>
-              </div>
+              </>
             );
           })}
         </div>
       </div>
+      <button
+        className="w-32 p-4 border-2 border-blue-600 rounded-2xl hover:bg-blue-500 active:bg-blue-800 hover:text-slate-200"
+        onClick={() => setActiveComponent(null)} // setting activeComponent to null to close ScienceBot
+      >
+        Close
+      </button>
     </>
   );
 }

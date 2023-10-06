@@ -28,7 +28,7 @@ const TopArticles = () => {
 
   return (
     <div>
-      <Tag text="Most Viewed" />
+      <Tag text="Top US and World News" />
       {mostViewed ? (
         <div>
           <ul className="space-y-1 list-disc list-inside">
